@@ -6,7 +6,7 @@
 #    By: duzun <davut@uzun.ist>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/03 22:25:04 by marvin            #+#    #+#              #
-#    Updated: 2022/10/22 17:21:03 by duzun            ###   ########.fr        #
+#    Updated: 2022/10/22 18:31:08 by duzun            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,19 +28,20 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	make -C ./libft
+	@echo "Libft Done !"
 	make -C ./minilibx
+	@echo "Minilibx  Done !"
 	$(CC) -o $(NAME) $(SRCS) -I $(OPENGL) $(CFLAGS)
 	@echo "So_Long  Done !"
 clean:
-					make clean -C ./libft
-					make clean -C ./minilibx
-					$(RM) $(OBJS)
+				make clean -C ./libft
+				make clean -C ./minilibx
+				$(RM) $(OBJS)
 
-fclean:				clean
-					$(RM) $(NAME)
+fclean:	clean
+				$(RM) $(NAME)
 
-re:					fclean $(NAME)
+re:				fclean $(NAME)
 
 					
 .PHONY:	all clean fclean re
-
