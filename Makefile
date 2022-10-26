@@ -6,7 +6,7 @@
 #    By: duzun <davut@uzun.ist>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/03 22:25:04 by marvin            #+#    #+#              #
-#    Updated: 2022/10/27 00:32:10 by duzun            ###   ########.fr        #
+#    Updated: 2022/10/27 01:14:01 by duzun            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,20 +41,16 @@ $(OBJS_DIR)%.o : %.c $(PROJECT_H)
 $(NAME): $(OBJECTS_PREFIXED) makeyap
 	@$(CC) -o $(NAME) $(OBJECTS_PREFIXED) $(CFLAGS) ./libft/libft.a ./minilibx/libmlx.a ${MXFLAGS}
 	@printf "\033[2K\r\033[0;32m[END]\033[0m $(NAME)$(END)\n"
-	@echo "So_Long  Done !"
 
 all: $(NAME)	
 
 makeyap:
 	@make -C ./libft
-	@echo "Libft Done !"
 	@make -C ./minilibx
-	@echo "Minilibx  Done !"
  
 clean:
 	@make clean -C ./libft
 	@make clean -C ./minilibx
-	@make clean -C ./ft_printf
 	@rm -rf $(OBJS_DIR)
 	@printf "\033[2K\r${GRN}[CLEAN]${RST} done$(END)"
 

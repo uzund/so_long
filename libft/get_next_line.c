@@ -10,60 +10,70 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "libft.h"
 
-char	*ft_satir_yap(char **str, int chrlen, char **buf)
+static void	ft_strcpy(char *src, char *dst)
 {
-	int		i;
-	char	*line;
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (dst[i] != '\0')
+		i++;
+	while (src[j] != '\0')
+	{
+		dst[i] = src[j];
+		i++;
+		j++;
+	}
+	dst[i] = '\0';
+}
+
+static char	*ft_read(int fd, char *str, int ret, char *buf)
+{
 	char	*tmp;
 
-	free(*buf);
-	tmp = NULL;
-	if (chrlen < 0 || *str == NULL)
-		return (NULL);
-	if (!chrlen && !ft_strchr(*str, '\n'))
+	while (ret > 0 && str[ft_strlen(str) - 1] != '\n')
 	{
-		line = ft_strdup(*str);
-		free(*str);
-		*str = NULL;
-		return (line);
+		if (!*str)
+			ft_strcpy(buf, str);
+		else
+		{
+			tmp = str;
+			str = ft_strjoin(str, buf);
+			free(tmp);
+		}
+		ret = read(fd, buf, 1);
+		buf[ret] = '\0';
 	}
-	i = 0;
-	while ((*str)[i] != '\n')
-		i++;
-	line = ft_substr(*str, 0, i + 1);
-	if ((int)ft_strlen(*str) - i - 1)
-		tmp = ft_substr(*str, i + 1, ft_strlen(*str) - i - 1);
-	free(*str);
-	*str = tmp;
-	return (line);
+	return (str);
 }
 
 char	*get_next_line(int fd)
 {
-	static char	*str;
-	char		*buf;
-	char		*tmp;
-	int			chrlen;
+	static int	ret;
+	char		*str;
+	static char	c[2];
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd == -1 || read(fd, c, 0) == -1)
 		return (NULL);
-	buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	if (!buf)
+	str = malloc(sizeof(char) * 2);
+	if (str == NULL)
 		return (NULL);
-	chrlen = read(fd, buf, BUFFER_SIZE);
-	while (chrlen > 0)
+	str[0] = '\0';
+	if (ret == 0)
 	{
-		buf[chrlen] = '\0';
-		if (!str)
-			tmp = ft_strdup(buf);
-		else
-			tmp = ft_strjoin(str, buf);
-		str = tmp;
-		if (ft_strchr(str, '\n'))
-			break ;
-		chrlen = read(fd, buf, BUFFER_SIZE);
+		ret = read(fd, c, 1);
+		c[ret] = '\0';
 	}
-	return (ft_satir_yap(&str, chrlen, &buf));
+	if (ret > 0 && c[0] != '\0')
+		str = ft_read(fd, str, ret, c);
+	else
+	{
+		free(str);
+		return (NULL);
+	}
+	return (str);
 }
