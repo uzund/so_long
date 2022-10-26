@@ -6,14 +6,14 @@
 #    By: duzun <davut@uzun.ist>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/03 22:25:04 by marvin            #+#    #+#              #
-#    Updated: 2022/10/26 23:55:06 by duzun            ###   ########.fr        #
+#    Updated: 2022/10/27 00:34:46 by duzun            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 
 NAME	=	libft.a
-LIBFT 	=	libft.h
+
 CC		=	gcc
 CFLAGS	=	-Wall -Werror -Wextra
 RM		=	rm -f
@@ -59,7 +59,8 @@ SRCS				=	ft_isalpha.c \
 						i_d_format.c \
 						x_format.c \
 						p_format.c \
-						s_format.c \
+						s_format.c 
+						
 OBJS				=	$(SRCS:.c=.o)
 
 BONUS				=	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c \
@@ -85,5 +86,5 @@ bonus:				$(OBJS) $(BONUS_OBJS)
 					@echo "Libft Bonus Done !"
 					
 					
-.PHONY:	all clean fclean re
+.PHONY:	all clean fclean re bonus
 

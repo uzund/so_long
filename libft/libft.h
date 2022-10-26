@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:47:37 by duzun             #+#    #+#             */
-/*   Updated: 2022/10/26 23:44:32 by duzun            ###   ########.fr       */
+/*   Updated: 2022/10/27 00:38:05 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,22 @@
 # define LIBFT_H
 
 # include <stdlib.h>
+# include <string.h>
 # include <unistd.h>
+# include <stdarg.h>
+# include <limits.h>
 
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
-}	t_list;
+}				t_list;
+
+typedef struct s_printf
+{
+	va_list		args;
+	int			length;
+}			t_printf;
 
 typedef struct s_gnl
 {

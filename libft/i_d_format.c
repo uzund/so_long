@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 00:14:12 by duzun             #+#    #+#             */
-/*   Updated: 2022/10/27 00:14:34 by duzun            ###   ########.fr       */
+/*   Updated: 2022/10/27 00:27:53 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	len(long nb)
 
 static	char	*ft_itoa(int num)
 {
-	long	nb
+	long	nb;
 	char	*string;
 	int		i;
 

@@ -6,7 +6,7 @@
 #    By: duzun <davut@uzun.ist>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/03 22:25:04 by marvin            #+#    #+#              #
-#    Updated: 2022/10/27 00:06:48 by duzun            ###   ########.fr        #
+#    Updated: 2022/10/27 00:32:10 by duzun            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,6 @@ SRCS		= 	srcs/main.c \
 				srcs/pokemon.c \
 				srcs/movements.c \
 				srcs/utils.c
-
 NAME		=	pokemon
 CC			=	gcc
 CFLAGS		=	-Wall -Werror -Wextra -g
@@ -61,7 +60,7 @@ clean:
 
 fclean: clean
 	@make fclean -C ./libft
-	@make fclean -C ./minilibx
+#	@make fclean -C ./minilibx
 	@rm -f $(NAME)
 	@printf "\033[2K\r${GRN}[FCLEAN]${RST} done$(END)"
 	
