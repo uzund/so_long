@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:29:15 by duzun             #+#    #+#             */
-/*   Updated: 2022/10/27 22:11:33 by duzun            ###   ########.fr       */
+/*   Updated: 2022/10/28 01:11:25 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,10 @@ void	free_all(t_game *oyun)
 
 	i = -1;
 	mlx_destroy_image(oyun->mlx, oyun->player);
-	mlx_destroy_image(oyun->mlx, oyun->pokeball);
-	mlx_destroy_image(oyun->mlx, oyun->grass);
-	mlx_destroy_image(oyun->mlx, oyun->pikachu);
-	mlx_destroy_image(oyun->mlx, oyun->ground);
+	mlx_destroy_image(oyun->mlx, oyun->hediye);
+	mlx_destroy_image(oyun->mlx, oyun->duvar);
+	mlx_destroy_image(oyun->mlx, oyun->cikis);
+	mlx_destroy_image(oyun->mlx, oyun->zemin);
 	mlx_destroy_window(oyun->mlx, oyun->mlx_win);
 	while (oyun->map[++i])
 		free(oyun->map[i]);

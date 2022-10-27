@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:28:45 by duzun             #+#    #+#             */
-/*   Updated: 2022/10/27 22:11:16 by duzun            ###   ########.fr       */
+/*   Updated: 2022/10/28 00:58:20 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ static void	change_player_img(t_game *oyun, char c)
 	mlx_clear_window(oyun->mlx, oyun->mlx_win);
 	mlx_destroy_image(oyun->mlx, oyun->player);
 	if (c == 'u')
-		put_image(oyun, &oyun->player, "./img/player_down.xpm");
+		put_image(oyun, &oyun->player, "./img/player_arka.xpm");
 	if (c == 'r')
-		put_image(oyun, &oyun->player, "./img/player_right.xpm");
+		put_image(oyun, &oyun->player, "./img/player_sag.xpm");
 	if (c == 'l')
-		put_image(oyun, &oyun->player, "./img/player_left.xpm");
+		put_image(oyun, &oyun->player, "./img/player_sol.xpm");
 	if (c == 'd')
-		put_image(oyun, &oyun->player, "./img/player_front.xpm");
+		put_image(oyun, &oyun->player, "./img/player_on.xpm");
 }
 
 int	move_up(t_game *oyun)

@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:28:56 by duzun             #+#    #+#             */
-/*   Updated: 2022/10/27 22:11:21 by duzun            ###   ########.fr       */
+/*   Updated: 2022/10/28 02:12:57 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ static void	init_window(t_game *oyun)
 	int	height;
 	int	width;
 
-	height = (oyun->height + 1) * 40;
-	width = oyun->width * 40;
+	height = (oyun->height + 1) * 53;
+	width = oyun->width * 53;
 	oyun->mlx = mlx_init();
 	oyun->mlx_win = mlx_new_window(oyun->mlx, width, height, "SO_LONG [DAVUT UZUN] [42istanbul]");
 	oyun->mlx_img = mlx_new_image(oyun->mlx, width, height);
@@ -31,11 +31,11 @@ static void	init_window(t_game *oyun)
 
 static void	init_images(t_game *oyun)
 {
-	put_image(oyun, &oyun->player, "./img/player_front.xpm");
-	put_image(oyun, &oyun->pikachu, "./img/pikachu.xpm");
-	put_image(oyun, &oyun->pokeball, "./img/pokeball.xpm");
-	put_image(oyun, &oyun->grass, "./img/grass.xpm");
-	put_image(oyun, &oyun->ground, "./img/ground.xpm");
+	put_image(oyun, &oyun->player, "./img/player_on.xpm");
+	put_image(oyun, &oyun->cikis, "./img/cikis.xpm");
+	put_image(oyun, &oyun->hediye, "./img/hediye.xpm");
+	put_image(oyun, &oyun->duvar, "./img/duvar.xpm");
+	put_image(oyun, &oyun->zemin, "./img/zemin.xpm");
 }
 
 static void	init_item(t_game *oyun, void *item, int i, int j)
@@ -45,11 +45,11 @@ static void	init_item(t_game *oyun, void *item, int i, int j)
 		oyun->player_x = i;
 		oyun->player_y = j;
 		mlx_put_image_to_window(oyun->mlx, oyun->mlx_win, \
-			item, i * 40, j * 40);
+			item, i * 53, j * 53);
 	}
 	else
 		mlx_put_image_to_window(oyun->mlx, oyun->mlx_win, \
-			item, i * 40, j * 40);
+			item, i * 53, j * 53);
 }
 
 int	init_map(t_game *oyun)
@@ -64,15 +64,15 @@ int	init_map(t_game *oyun)
 		while (oyun->map[j][++i])
 		{
 			if (oyun->map[j][i] == 'E')
-				init_item(oyun, oyun->pikachu, i, j);
+				init_item(oyun, oyun->cikis, i, j);
 			if (oyun->map[j][i] == '1')
-				init_item(oyun, oyun->grass, i, j);
+				init_item(oyun, oyun->duvar, i, j);
 			if (oyun->map[j][i] == 'C')
-				init_item(oyun, oyun->pokeball, i, j);
+				init_item(oyun, oyun->hediye, i, j);
 			if (oyun->map[j][i] == 'P')
 				init_item(oyun, oyun->player, i, j);
 			if (oyun->map[j][i] == '0')
-				init_item(oyun, oyun->ground, i, j);
+				init_item(oyun, oyun->zemin, i, j);
 		}
 	}
 	return (0);

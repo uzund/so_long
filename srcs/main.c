@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:28:37 by duzun             #+#    #+#             */
-/*   Updated: 2022/10/27 22:11:13 by duzun            ###   ########.fr       */
+/*   Updated: 2022/10/28 01:07:54 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ static t_game	*init_param(t_game *oyun)
 	oyun->e = 0;
 	oyun->p = 0;
 	oyun->player = NULL;
-	oyun->grass = NULL;
-	oyun->pikachu = NULL;
-	oyun->ground = NULL;
-	oyun->pokeball = NULL;
+	oyun->duvar = NULL;
+	oyun->cikis = NULL;
+	oyun->zemin = NULL;
+	oyun->hediye = NULL;
 	oyun->success = 0;
 	oyun->fail = 0;
 	return (oyun);

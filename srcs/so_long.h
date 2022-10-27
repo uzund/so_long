@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:29:03 by duzun             #+#    #+#             */
-/*   Updated: 2022/10/27 22:11:28 by duzun            ###   ########.fr       */
+/*   Updated: 2022/10/28 01:07:40 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ typedef struct s_game
 	int		e;
 	int		p;
 	void	*player;
-	void	*grass;
-	void	*pikachu;
-	void	*ground;
-	void	*pokeball;
+	void	*duvar;
+	void	*cikis;
+	void	*zemin;
+	void	*hediye;
 	int		success;
 	int		fail;
 }	t_game;
