@@ -6,7 +6,7 @@
 /*   By: duzun <ditko73@gmail.com>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:28:13 by duzun             #+#    #+#             */
-/*   Updated: 2022/10/27 20:36:05 by duzun            ###   ########.fr       */
+/*   Updated: 2022/10/27 20:51:56 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ static void	check_line(char *line, size_t size, size_t row)
 
 	i = -1;
 	if (row != size)
-		exit_error("Invalid map : every row must have the same length", 0);
+		exit_error("Geçersiz harita: her satır aynı uzunlukta olmalı.", 0);
 	while (line[++i])
 	{
 		if (line[i] != '0' && line[i] != '1' && line[i] != 'C'
 			&& line[i] != 'E' && line[i] != 'P' && line[i] != '\n')
 		{
-			ft_printf("Unknown caracter %c\n", line[i]);
-			exit_error("Error: unidentified map caracter", 0);
+			ft_printf("Geçersiz karakter %c\n", line[i]);
+			exit_error("Hata: tanımlanmayan harita karakteri", 0);
 		}
 	}
 }

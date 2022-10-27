@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: duzun <davut@uzun.ist>                     +#+  +:+       +#+         #
+#    By: duzun <ditko73@gmail.com>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/03 22:25:04 by marvin            #+#    #+#              #
-#    Updated: 2022/10/27 02:32:27 by duzun            ###   ########.fr        #
+#    Updated: 2022/10/27 21:07:58 by duzun            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,6 @@ SRCS	=	ft_isalnum.c \
 			ft_lstmap.c \
 			ft_lstnew.c \
 			ft_lstsize.c \
-			ft_printf.c \
 			c_format.c \
 			u_format.c \
 			i_d_format.c \
@@ -69,6 +68,7 @@ SRCS	=	ft_isalnum.c \
 			s_format.c \
 			get_next_line.c
 						
+#			ft_printf.c 
 OBJS				=	$(SRCS:.c=.o)
 
 all:				$(NAME)
@@ -84,5 +84,5 @@ fclean:				clean
 
 re:					fclean $(NAME)
 										
-.PHONY:	all clean fclean re bonus
+.PHONY:	all clean fclean re
 

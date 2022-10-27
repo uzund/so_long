@@ -6,7 +6,7 @@
 /*   By: duzun <ditko73@gmail.com>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:28:27 by duzun             #+#    #+#             */
-/*   Updated: 2022/10/27 20:35:09 by duzun            ###   ########.fr       */
+/*   Updated: 2022/10/27 20:50:05 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,11 @@ static void	check_char(t_game *oyun)
 		}
 	}
 	if (!oyun->c)
-		exit_error("Geçersiz Harita: Toplanacak öge yok.", 0);
+		exit_error("Geçersiz harita: Toplanacak öge yok.", 0);
 	if (oyun->e != 1)
-		exit_error("Geçersiz Harita: Çıkış yok yada birden fazla.", 0);
+		exit_error("Geçersiz harita: Çıkış yok yada birden fazla.", 0);
 	if (oyun->p != 1)
-		exit_error("Geçersiz Harita: Oyuncu yok yada birden fazla.", 0);
+		exit_error("Geçersiz harita: Oyuncu yok yada birden fazla.", 0);
 }
 
 void	check_map(t_game *oyun)
