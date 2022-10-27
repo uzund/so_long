@@ -6,19 +6,19 @@
 /*   By: duzun <ditko73@gmail.com>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:28:13 by duzun             #+#    #+#             */
-/*   Updated: 2022/10/27 17:23:04 by duzun            ###   ########.fr       */
+/*   Updated: 2022/10/27 20:36:05 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static t_param	*get_wh(t_param *param)
+static t_game	*get_wh(t_game *oyun)
 {
-	param->width = ft_strlen(param->map[0]);
-	while (param->map[param->height])
-		param->height++;
-	param->height--;
-	return (param);
+	oyun->width = ft_strlen(oyun->map[0]);
+	while (oyun->map[oyun->height])
+		oyun->height++;
+	oyun->height--;
+	return (oyun);
 }
 
 static void	check_line(char *line, size_t size, size_t row)
@@ -65,7 +65,7 @@ static char	*get_data(int fd)
 	return (data);
 }
 
-void	build_map(char *argv, t_param *param)
+void	build_map(char *argv, t_game *oyun)
 {
 	int		fd;
 	char	*path;
@@ -76,9 +76,9 @@ void	build_map(char *argv, t_param *param)
 	if (fd == -1)
 		exit_error("INEXISTENT OR INVALID MAP", 0);
 	data = get_data(fd);
-	param->map = ft_split(data, '\n');
+	oyun->map = ft_split(data, '\n');
 	close(fd);
 	free(data);
-	param = get_wh(param);
-	check_map(param);
+	oyun = get_wh(oyun);
+	check_map(oyun);
 }

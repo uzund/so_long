@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "pokemon.h": "c"
+        "pokemon.h": "c",
+        "algorithm": "c",
+        "ios": "c"
     }
 }
