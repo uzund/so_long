@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:29:03 by duzun             #+#    #+#             */
-/*   Updated: 2022/10/28 01:07:40 by duzun            ###   ########.fr       */
+/*   Updated: 2022/10/28 02:32:37 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_game
 	int		fail;
 }	t_game;
 
-void	build_map(char *argv, t_game *oyun);
+void	building_map(char *av, t_game *oyun);
 void	check_map(t_game *oyun);
 void	so_long(t_game *oyun);
 int		init_map(t_game *oyun);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   build_map.c                                        :+:      :+:    :+:   */
+/*   building_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:28:13 by duzun             #+#    #+#             */
-/*   Updated: 2022/10/27 22:10:59 by duzun            ###   ########.fr       */
+/*   Updated: 2022/10/28 02:32:18 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,13 @@ static char	*get_data(int fd)
 	return (data);
 }
 
-void	build_map(char *argv, t_game *oyun)
+void	building_map(char *av, t_game *oyun)
 {
 	int		fd;
 	char	*path;
 	char	*data;
 
-	path = ft_strjoin("./maps/", argv);
+	path = ft_strjoin("./maps/", av);
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
 		exit_error("INEXISTENT OR INVALID MAP", 0);

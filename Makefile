@@ -6,7 +6,7 @@
 #    By: duzun <davut@uzun.ist>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/03 22:25:04 by marvin            #+#    #+#              #
-#    Updated: 2022/10/27 22:11:38 by duzun            ###   ########.fr        #
+#    Updated: 2022/10/28 02:33:53 by duzun            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,10 +17,10 @@ RST			= \033[0m
 END			= \e[0m
 
 SRCS		= 	srcs/main.c \
-				srcs/build_map.c \
+				srcs/building_map.c \
 				srcs/check_map.c \
 				srcs/so_long.c \
-				srcs/movements.c \
+				srcs/move.c \
 				srcs/utils.c
 NAME		=	so_long
 CC			=	gcc

@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:28:37 by duzun             #+#    #+#             */
-/*   Updated: 2022/10/28 01:07:54 by duzun            ###   ########.fr       */
+/*   Updated: 2022/10/28 02:32:02 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,29 +36,29 @@ static t_game	*init_param(t_game *oyun)
 	return (oyun);
 }
 
-static int	check_file(char *argv)
+static int	check_file(char *av)
 {
 	int	i;
 
 	i = 0;
-	while (argv[i] && argv[i] != '.')
+	while (av[i] && av[i] != '.')
 		i++;
-	if (ft_strncmp((argv + i), ".ber", 4) != 0)
+	if (ft_strncmp((av + i), ".ber", 4) != 0)
 		return (0);
 	return (1);
 }
 
-int	main(int argc, char **argv)
+int	main(int ac, char **av)
 {
 	t_game	*oyun;
 
-	if (argc != 2)
+	if (ac != 2)
 		exit_error("Error! Use: ./so_long <map.ber>", 0);
-	if (!check_file(argv[1]))
+	if (!check_file(av[1]))
 		exit_error(".ber uzantılı dosya bulunamadı.", 0);
 	oyun = (t_game *)malloc(sizeof(t_game));
 	oyun = init_param(oyun);
-	build_map(argv[1], oyun);
+	building_map(av[1], oyun);
 	so_long(oyun);
 	return (0);
 }
