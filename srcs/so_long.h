@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: duzun <ditko73@gmail.com>                  +#+  +:+       +#+        */
+/*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:29:03 by duzun             #+#    #+#             */
-/*   Updated: 2022/10/27 20:27:31 by duzun            ###   ########.fr       */
+/*   Updated: 2022/10/27 22:11:28 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,8 @@
 
 # include "../minilibx/mlx.h"
 # include "../libft/libft.h"
+# include "../ft_printf/ft_printf.h"
 
-# include <string.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
 # include <fcntl.h>
 
 typedef struct s_game

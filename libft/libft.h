@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:47:37 by duzun             #+#    #+#             */
-/*   Updated: 2022/10/27 02:09:45 by duzun            ###   ########.fr       */
+/*   Updated: 2022/10/27 22:10:42 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define LIBFT_H
 
 # include <stdlib.h>
-# include <string.h>
 # include <unistd.h>
 # include <stdarg.h>
 # include <limits.h>
@@ -25,20 +24,10 @@ typedef struct s_list
 	struct s_list	*next;
 }				t_list;
 
-typedef struct s_printf
-{
-	va_list		args;
-	int			length;
-}			t_printf;
-
-typedef struct s_gnl
-{
-	int		ret;
-	char	*tmp;
-	char	*res;
-	char	buff[2];
-	int		i;
-}			t_gnl;
+//Get Nex Line için buffer tanımlaması
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 53
+# endif
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -50,6 +39,7 @@ void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t len);
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 int		ft_toupper(int c);
@@ -86,13 +76,5 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 char	*get_next_line(int fd);
-int		ft_printf(const char *str, ...);
-void	i_d_format(t_printf *tab);
-void	c_format(t_printf *tab, int index);
-void	s_format(t_printf *tab);
-void	p_format(t_printf *tab);
-void	u_format(t_printf *tab);
-void	x_format(t_printf *tab, int index);
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n);
 
 #endif

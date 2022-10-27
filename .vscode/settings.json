@@ -2,6 +2,7 @@
     "files.associations": {
         "pokemon.h": "c",
         "algorithm": "c",
-        "ios": "c"
+        "ios": "c",
+        "libft.h": "c"
     }
 }
