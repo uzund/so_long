@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pokemon.h                                          :+:      :+:    :+:   */
+/*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
+/*   By: duzun <ditko73@gmail.com>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:29:03 by duzun             #+#    #+#             */
-/*   Updated: 2022/10/26 21:51:28 by duzun            ###   ########.fr       */
+/*   Updated: 2022/10/27 17:47:23 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef POKEMON_H
-# define POKEMON_H
+#ifndef SO_LONG_H
+# define SO_LONG_H
+
+# include "../minilibx/mlx.h"
+# include "../libft/libft.h"
 
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
 # include <fcntl.h>
-# include "../minilibx/mlx.h"
-# include "../libft/libft.h"
 
 typedef struct s_param
 {
@@ -46,7 +47,7 @@ typedef struct s_param
 
 void	build_map(char *argv, t_param *param);
 void	check_map(t_param *param);
-void	pokemon(t_param *param);
+void	so_long(t_param *param);
 int		init_map(t_param *param);
 int		move_up(t_param *param);
 int		move_down(t_param *param);

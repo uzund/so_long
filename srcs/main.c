@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
+/*   By: duzun <ditko73@gmail.com>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:28:37 by duzun             #+#    #+#             */
-/*   Updated: 2022/10/26 21:28:39 by duzun            ###   ########.fr       */
+/*   Updated: 2022/10/27 17:31:19 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pokemon.h"
+#include "so_long.h"
 
 static t_param	*init_param(t_param *param)
 {
@@ -53,12 +53,12 @@ int	main(int argc, char **argv)
 	t_param	*param;
 
 	if (argc != 2)
-		exit_error("ERROR! FORMAT: ./POKEMON <MAP.BER>", 0);
+		exit_error("Error! Use: ./so_long <map.ber>", 0);
 	if (!check_file(argv[1]))
-		exit_error("File is not .ber", 0);
+		exit_error(".ber uzantılı dosya bulunamadı.", 0);
 	param = (t_param *)malloc(sizeof(t_param));
 	param = init_param(param);
 	build_map(argv[1], param);
-	pokemon(param);
+	so_long(param);
 	return (0);
 }

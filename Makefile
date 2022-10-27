@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: duzun <davut@uzun.ist>                     +#+  +:+       +#+         #
+#    By: duzun <ditko73@gmail.com>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/03 22:25:04 by marvin            #+#    #+#              #
-#    Updated: 2022/10/27 01:14:01 by duzun            ###   ########.fr        #
+#    Updated: 2022/10/27 17:40:50 by duzun            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,16 +19,16 @@ END			= \e[0m
 SRCS		= 	srcs/main.c \
 				srcs/build_map.c \
 				srcs/check_map.c \
-				srcs/pokemon.c \
+				srcs/so_long.c \
 				srcs/movements.c \
 				srcs/utils.c
-NAME		=	pokemon
+NAME		=	so_long
 CC			=	gcc
 CFLAGS		=	-Wall -Werror -Wextra -g
 MXFLAGS		=	-framework OpenGL -framework AppKit
 RM			=	rm -f
 OBJS_DIR	= 	objs/
-PROJECT_H	= 	srcs/pokemon.h
+PROJECT_H	= 	srcs/so_long.h
 OBJS		=	$(SRCS:.c=.o)
 OBJECTS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJS))
 

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   build_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
+/*   By: duzun <ditko73@gmail.com>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:28:13 by duzun             #+#    #+#             */
-/*   Updated: 2022/10/26 21:28:16 by duzun            ###   ########.fr       */
+/*   Updated: 2022/10/27 17:23:04 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pokemon.h"
+#include "so_long.h"
 
 static t_param	*get_wh(t_param *param)
 {

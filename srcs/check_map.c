@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
+/*   By: duzun <ditko73@gmail.com>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:28:27 by duzun             #+#    #+#             */
-/*   Updated: 2022/10/26 21:28:30 by duzun            ###   ########.fr       */
+/*   Updated: 2022/10/27 18:38:24 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pokemon.h"
+#include "so_long.h"
 
 static void	check_border(t_param *param)
 {
@@ -20,19 +20,19 @@ static void	check_border(t_param *param)
 	while (++i < param->height)
 	{
 		if (param->map[i][0] != '1' || param->map[i][param->width -1] != '1')
-			exit_error("INVALID MAP: BORDERS MUST BE CLOSED", 0);
+			exit_error("Geçersiz Harita: Sınırlar kapatılmalıdır.", 0);
 	}
 	i = -1;
 	while (param->map[0][++i])
 	{
 		if (param->map[0][i] != '1')
-			exit_error("INVALID MAP: BORDERS MUST BE CLOSED", 0);
+			exit_error("Geçersiz Harita: Sınırlar kapatılmalıdır.", 0);
 	}
 	i = -1;
 	while (param->map[param->height][++i])
 	{
 		if (param->map[param->height][i] != '1')
-			exit_error("INVALID MAP: BORDERS MUST BE CLOSED", 0);
+			exit_error("Geçersiz Harita: Sınırlar kapatılmalıdır.", 0);
 	}
 }
 
@@ -56,11 +56,11 @@ static void	check_char(t_param *param)
 		}
 	}
 	if (!param->c)
-		exit_error("INVALID MAP : NO ITEMS TO COLLECT", 0);
+		exit_error("Geçersiz Harita: Toplanacak öge yok.", 0);
 	if (param->e != 1)
-		exit_error("INVALID MAP : TOO MANY OR NO EXIT", 0);
+		exit_error("Geçersiz Harita: Çıkış yok yada birden fazla.", 0);
 	if (param->p != 1)
-		exit_error("INVALID MAP : TOO MANY OR NO PLAYER", 0);
+		exit_error("Geçersiz Harita: Oyuncu yok yada birden fazla.", 0);
 }
 
 void	check_map(t_param *param)

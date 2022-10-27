@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
+/*   By: duzun <ditko73@gmail.com>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:29:15 by duzun             #+#    #+#             */
-/*   Updated: 2022/10/26 21:29:18 by duzun            ###   ########.fr       */
+/*   Updated: 2022/10/27 17:44:24 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pokemon.h"
+#include "so_long.h"
 
 void	put_image(t_param *param, void **image, char *path)
 {
@@ -21,7 +21,7 @@ void	put_image(t_param *param, void **image, char *path)
 	if (!(*image))
 	{
 		free_all(param);
-		ft_putendl_fd("Image initialisation problem", 2);
+		ft_putendl_fd("Görüntü başlatma sorunu", 2);
 		exit(0);
 	}
 }
@@ -80,7 +80,7 @@ void	free_all(t_param *param)
 		free(param->map[i]);
 	free(param->map);
 	if (param->success)
-		ft_printf("GREAT! YOUR SCORE IS: %d\n", ++param->count);
+		ft_printf("Başardınız! Skorunuz: %d\n", ++param->count);
 	if (param->fail)
-		ft_printf("TRY AGAIN!\n");
+		ft_printf("Tekrar Deneyiniz!\n");
 }

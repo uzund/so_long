@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pokemon.c                                          :+:      :+:    :+:   */
+/*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
+/*   By: duzun <ditko73@gmail.com>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:28:56 by duzun             #+#    #+#             */
-/*   Updated: 2022/10/26 21:28:58 by duzun            ###   ########.fr       */
+/*   Updated: 2022/10/27 19:28:20 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pokemon.h"
+#include "so_long.h"
 
 static void	init_window(t_param *param)
 {
@@ -20,22 +20,22 @@ static void	init_window(t_param *param)
 	height = (param->height + 1) * 40;
 	width = param->width * 40;
 	param->mlx = mlx_init();
-	param->mlx_win = mlx_new_window(param->mlx, width, height, "POKEMON");
+	param->mlx_win = mlx_new_window(param->mlx, width, height, "SO_LONG [DAVUT UZUN] [42istanbul]");
 	param->mlx_img = mlx_new_image(param->mlx, width, height);
 	if (param->mlx == 0 || param->mlx_win == 0 || param->mlx_img == 0)
 	{
 		free_all(param);
-		exit_error("ERROR: IMAGE INITIALISATION FAILED", 0);
+		exit_error("Hata!: Görüntü başlatma başarısız oldu.", 0);
 	}
 }
 
 static void	init_images(t_param *param)
 {
-	put_image(param, &param->player, "./images/player_front.xpm");
-	put_image(param, &param->pikachu, "./images/pikachu.xpm");
-	put_image(param, &param->pokeball, "./images/pokeball.xpm");
-	put_image(param, &param->grass, "./images/grass.xpm");
-	put_image(param, &param->ground, "./images/ground.xpm");
+	put_image(param, &param->player, "./img/player_front.xpm");
+	put_image(param, &param->pikachu, "./img/pikachu.xpm");
+	put_image(param, &param->pokeball, "./img/pokeball.xpm");
+	put_image(param, &param->grass, "./img/grass.xpm");
+	put_image(param, &param->ground, "./img/ground.xpm");
 }
 
 static void	init_item(t_param *param, void *item, int i, int j)
@@ -78,7 +78,7 @@ int	init_map(t_param *param)
 	return (0);
 }
 
-void	pokemon(t_param *param)
+void	so_long(t_param *param)
 {
 	init_window(param);
 	init_images(param);
