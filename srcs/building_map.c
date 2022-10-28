@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:28:13 by duzun             #+#    #+#             */
-/*   Updated: 2022/10/28 02:32:18 by duzun            ###   ########.fr       */
+/*   Updated: 2022/10/28 03:49:34 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static char	*get_data(int fd)
 
 	line = get_next_line(fd);
 	if (line == NULL)
-		exit_error("EMPTY FILE", 0);
+		exit_error("Dosya boş", 0);
 	size = ft_strlen(line);
 	data = ft_strdup(line);
 	while (line)
@@ -74,7 +74,7 @@ void	building_map(char *av, t_game *oyun)
 	path = ft_strjoin("./maps/", av);
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
-		exit_error("INEXISTENT OR INVALID MAP", 0);
+		exit_error("Geçersiz veya hatalı harita", 0);
 	data = get_data(fd);
 	oyun->map = ft_split(data, '\n');
 	close(fd);

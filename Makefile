@@ -6,7 +6,7 @@
 #    By: duzun <davut@uzun.ist>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/03 22:25:04 by marvin            #+#    #+#              #
-#    Updated: 2022/10/28 03:37:28 by duzun            ###   ########.fr        #
+#    Updated: 2022/10/28 03:45:40 by duzun            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ $(OBJS_DIR)%.o : %.c $(PROJECT_H)
 
 $(NAME): $(OBJECTS_PREFIXED) makeyap
 	@$(CC) -o $(NAME) $(OBJECTS_PREFIXED) $(CFLAGS) ./ft_printf/libftprintf.a ./libft/libft.a ./minilibx/libmlx.a ${MXFLAGS}
-	@printf "\033[2K\r${YESIL}[KURULUM TAMAMLANDI]${MAVI} -- >${KIRMIZI} $(NAME) ${MAVI}< --${SIFIRLA}$(SONLANDIR)\n"
+	@printf "\033[2K\r${YESIL}[KURULUM TAMAMLANDI]${MAVI} -- >${KIRMIZI} $(NAME) ${MAVI}< --${SIFIRLA}$(SONLANDIR)\a\n"
 	@printf "\033[2K\r${KIRMIZI}Çalıştırmak için: ${MAVI} ./so_long <*.ber> ${YESIL} // örnek: ./so_long map.ber)${SIFIRLA}$(SONLANDIR)\n"
 
 all: $(NAME)	
@@ -55,14 +55,14 @@ clean:
 	@make clean -C ./minilibx
 #	@make clean -C ./ft_printf
 	@rm -rf $(OBJS_DIR)
-	@printf "\033[2K\r${YESIL}[CLEAN]${KIRMIZI}[TAMAMLANDI]${SIFIRLA}$(SONLANDIR)\n"
+	@printf "\033[2K\r${YESIL}[CLEAN]${KIRMIZI}[TAMAMLANDI]${SIFIRLA}$(SONLANDIR)\a\n"
 
 fclean: clean
 	@make fclean -C ./libft
 #	@make fclean -C ./minilibx
 	@make fclean -C ./ft_printf
 	@rm -f $(NAME)
-	@printf "\033[2K\r${YESIL}[FCLEAN]${KIRMIZI}[TAMAMLANDI]${SIFIRLA}$(SONLANDIR)\n"
+	@printf "\033[2K\r${YESIL}[FCLEAN]${KIRMIZI}[TAMAMLANDI]${SIFIRLA}$(SONLANDIR)\a\n"
 	
 re:	fclean all
 				
