@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:47:37 by duzun             #+#    #+#             */
-/*   Updated: 2022/10/27 22:10:42 by duzun            ###   ########.fr       */
+/*   Updated: 2022/10/28 12:55:13 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdarg.h>
 # include <limits.h>
 
 typedef struct s_list
@@ -62,6 +61,10 @@ char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+int		ft_putchar(char c);
+int		ft_putstr(char *str);
+size_t	ft_nbrlen(int nbr);
+int		ft_putnbr(int nbr);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
@@ -76,5 +79,8 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 char	*get_next_line(int fd);
+int		ft_putnbrx(unsigned int n, char c);
+int		ft_putnbru(unsigned int nbru);
+int		ft_putp(unsigned long int nbrp);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: duzun <davut@uzun.ist>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/03 22:25:04 by marvin            #+#    #+#              #
-#    Updated: 2022/10/28 03:04:14 by duzun            ###   ########.fr        #
+#    Updated: 2022/10/28 12:47:59 by duzun            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,14 @@ SRCS	=	ft_isalnum.c \
 			ft_lstmap.c \
 			ft_lstnew.c \
 			ft_lstsize.c \
-			get_next_line.c
+			get_next_line.c \
+			ft_putchar.c \
+			ft_putstr.c \
+			ft_nbrlen.c \
+			ft_putnbr.c \
+			ft_putnbrx.c \
+			ft_putnbru.c \
+			ft_putp.c
 						
 OBJS				=	$(SRCS:.c=.o)
 

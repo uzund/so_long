@@ -1,8 +1,0 @@
-{
-    "files.associations": {
-        "pokemon.h": "c",
-        "algorithm": "c",
-        "ios": "c",
-        "libft.h": "c"
-    }
-}
