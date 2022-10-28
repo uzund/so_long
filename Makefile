@@ -6,15 +6,15 @@
 #    By: duzun <davut@uzun.ist>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/03 22:25:04 by marvin            #+#    #+#              #
-#    Updated: 2022/10/28 02:33:53 by duzun            ###   ########.fr        #
+#    Updated: 2022/10/28 03:37:28 by duzun            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-BLU			= \033[0;34m
-GRN			= \033[0;32m
-RED			= \033[0;31m
-RST			= \033[0m
-END			= \e[0m
+KIRMIZI		= \033[0;31m
+YESIL		= \033[0;32m
+MAVI		= \033[0;34m
+SIFIRLA		= \033[0m
+SONLANDIR	= \e[0m
 
 SRCS		= 	srcs/main.c \
 				srcs/building_map.c \
@@ -36,11 +36,12 @@ $(OBJS_DIR)%.o : %.c $(PROJECT_H)
 	@mkdir -p $(OBJS_DIR)
 	@mkdir -p $(OBJS_DIR)srcs
 	@$(CC) $(CFLAGS) -c $< -o $@
-	@printf	"\033[2K\r${BLU}[BUILD]${RST} '$<' $(END)"
+	@printf	"\033[2K\r${KIRMIZI}[DERLENİYOR!]${SIFIRLA} '$<' $(SONLANDIR)"
 
 $(NAME): $(OBJECTS_PREFIXED) makeyap
 	@$(CC) -o $(NAME) $(OBJECTS_PREFIXED) $(CFLAGS) ./ft_printf/libftprintf.a ./libft/libft.a ./minilibx/libmlx.a ${MXFLAGS}
-	@printf "\033[2K\r\033[0;32m[END]\033[0m $(NAME)$(END)\n"
+	@printf "\033[2K\r${YESIL}[KURULUM TAMAMLANDI]${MAVI} -- >${KIRMIZI} $(NAME) ${MAVI}< --${SIFIRLA}$(SONLANDIR)\n"
+	@printf "\033[2K\r${KIRMIZI}Çalıştırmak için: ${MAVI} ./so_long <*.ber> ${YESIL} // örnek: ./so_long map.ber)${SIFIRLA}$(SONLANDIR)\n"
 
 all: $(NAME)	
 
@@ -54,14 +55,14 @@ clean:
 	@make clean -C ./minilibx
 #	@make clean -C ./ft_printf
 	@rm -rf $(OBJS_DIR)
-	@printf "\033[2K\r${GRN}[CLEAN]${RST} done$(END)"
+	@printf "\033[2K\r${YESIL}[CLEAN]${KIRMIZI}[TAMAMLANDI]${SIFIRLA}$(SONLANDIR)\n"
 
 fclean: clean
 	@make fclean -C ./libft
 #	@make fclean -C ./minilibx
 	@make fclean -C ./ft_printf
 	@rm -f $(NAME)
-	@printf "\033[2K\r${GRN}[FCLEAN]${RST} done$(END)"
+	@printf "\033[2K\r${YESIL}[FCLEAN]${KIRMIZI}[TAMAMLANDI]${SIFIRLA}$(SONLANDIR)\n"
 	
 re:	fclean all
 				
