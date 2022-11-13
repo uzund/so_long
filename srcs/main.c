@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:28:37 by duzun             #+#    #+#             */
-/*   Updated: 2022/10/28 02:32:02 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/13 19:34:10 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,11 @@ int	main(int ac, char **av)
 	t_game	*oyun;
 
 	if (ac != 2)
-		exit_error("Error! Use: ./so_long <map.ber>", 0);
+		exit_error("Hata! Kullanım: ./so_long <map.ber>\n\
+		Error! Use: ./so_long <map.ber>\n", 0);
 	if (!check_file(av[1]))
-		exit_error(".ber uzantılı dosya bulunamadı.", 0);
+		exit_error(".ber uzantılı dosya bulunamadı.\n\
+		The .ber file was not found.\n", 0);
 	oyun = (t_game *)malloc(sizeof(t_game));
 	oyun = init_param(oyun);
 	building_map(av[1], oyun);

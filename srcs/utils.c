@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:29:15 by duzun             #+#    #+#             */
-/*   Updated: 2022/10/28 01:11:25 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/13 19:42:54 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	free_all(t_game *oyun)
 		free(oyun->map[i]);
 	free(oyun->map);
 	if (oyun->success)
-		ft_printf("Başardınız! Skorunuz: %d\n", ++oyun->count);
+		ft_printf("Başardınız Skorunuz\nYour Score %d\n", ++oyun->count);
 	if (oyun->fail)
-		ft_printf("Tekrar Deneyiniz!\n");
+		ft_printf("Tekrar Deneyiniz!\nTry again!\n");
 }

@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:29:03 by duzun             #+#    #+#             */
-/*   Updated: 2022/10/28 02:32:37 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/13 19:34:02 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct s_game
 {
 	int		player_x;
 	int		player_y;
-	char	**map ;
+	char	**map;
 	int		width;
 	int		height;
 	void	*mlx;
@@ -55,5 +55,8 @@ void	free_all(t_game *oyun);
 void	put_image(t_game *oyun, void **image, char *path);
 int		keypress(int code, t_game *oyun);
 int		free_all_exit(t_game *oyun);
+void	ft_chance(t_game *oyun);
+void	check_map(t_game *oyun);
+void	init_matrix_print(void);
 
 #endif

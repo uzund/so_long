@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:28:56 by duzun             #+#    #+#             */
-/*   Updated: 2022/10/28 02:12:57 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/13 19:31:35 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,14 @@ static void	init_window(t_game *oyun)
 	height = (oyun->height + 1) * 53;
 	width = oyun->width * 53;
 	oyun->mlx = mlx_init();
-	oyun->mlx_win = mlx_new_window(oyun->mlx, width, height, "SO_LONG [DAVUT UZUN] [42istanbul]");
+	oyun->mlx_win = mlx_new_window(oyun->mlx, width, height, "SO_LONG \
+	[DAVUT UZUN] [42istanbul]");
 	oyun->mlx_img = mlx_new_image(oyun->mlx, width, height);
 	if (oyun->mlx == 0 || oyun->mlx_win == 0 || oyun->mlx_img == 0)
 	{
 		free_all(oyun);
-		exit_error("Hata!: Görüntü başlatma başarısız oldu.", 0);
+		exit_error("Hata!: Görüntü başlatma başarısız oldu.\n\
+		Error!: Image initialization failed.\n", 0);
 	}
 }
 
