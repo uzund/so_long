@@ -6,7 +6,7 @@
 #    By: duzun <davut@uzun.ist>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/03 22:25:04 by marvin            #+#    #+#              #
-#    Updated: 2022/10/28 03:45:40 by duzun            ###   ########.fr        #
+#    Updated: 2022/11/13 23:06:15 by duzun            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,9 @@ SRCS		= 	srcs/main.c \
 				srcs/check_map.c \
 				srcs/so_long.c \
 				srcs/move.c \
-				srcs/utils.c
+				srcs/utils.c \
+				srcs/check_map_way.c \
+				srcs/check_map_way2.c
 NAME		=	so_long
 CC			=	gcc
 CFLAGS		=	-Wall -Werror -Wextra -g

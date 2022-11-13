@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:29:03 by duzun             #+#    #+#             */
-/*   Updated: 2022/11/13 21:10:00 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/13 23:42:50 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@
 # include "../ft_printf/ft_printf.h"
 
 # include <fcntl.h>
+
+# define X 35
+# define Y 20
+
+int matrix[20][35];
 
 typedef struct s_game
 {
@@ -56,10 +61,13 @@ void	put_image(t_game *oyun, void **image, char *path);
 int		keypress(int code, t_game *oyun);
 int		free_all_exit(t_game *oyun);
 void	ft_chance(t_game *oyun);
-void	check_map(t_game *oyun);
 void	init_matrix_print(void);
 void	init_matrix_tmp(void);
 void	init_matrix(t_game *oyun);
 void	map_exit_chack(int i, int j);
+void	ft_path_find(int matrix[Y][X]);
+int		ft_path(int matrix[Y][X], int y, int x, int visited[Y][X]);
+void	ft_paht_put(int result);
+void	init_matrix_tmp_child(int i, int j, int matrix[Y][X]);
 
 #endif
