@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:29:03 by duzun             #+#    #+#             */
-/*   Updated: 2022/11/13 19:34:02 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/13 21:10:00 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,8 @@ int		free_all_exit(t_game *oyun);
 void	ft_chance(t_game *oyun);
 void	check_map(t_game *oyun);
 void	init_matrix_print(void);
+void	init_matrix_tmp(void);
+void	init_matrix(t_game *oyun);
+void	map_exit_chack(int i, int j);
 
 #endif

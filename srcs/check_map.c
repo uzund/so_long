@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:28:27 by duzun             #+#    #+#             */
-/*   Updated: 2022/11/13 19:14:00 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/13 21:55:44 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,21 @@ static void	check_border(t_game *oyun)
 	{
 		if (oyun->map[i][0] != '1' || oyun->map[i][oyun->width -1] != '1')
 			exit_error("Geçersiz Harita: Sınırlar kapatılmalıdır.\n\
-		Invalid Map: Borders should be closed.\n", 0);
+Invalid Map: Borders should be closed.\n", 0);
 	}
 	i = -1;
 	while (oyun->map[0][++i])
 	{
 		if (oyun->map[0][i] != '1')
 			exit_error("Geçersiz Harita: Sınırlar kapatılmalıdır.\n\
-	Invalid Map: Borders should be closed.\n", 0);
+Invalid Map: Borders should be closed.\n", 0);
 	}
 	i = -1;
 	while (oyun->map[oyun->height][++i])
 	{
 		if (oyun->map[oyun->height][i] != '1')
 			exit_error("Geçersiz Harita: Sınırlar kapatılmalıdır.\n\
-		Invalid Map: Borders should be closed.\n", 0);
+Invalid Map: Borders should be closed.\n", 0);
 	}
 }
 
@@ -66,13 +66,13 @@ static void	check_char(t_game *oyun)
 	}
 	if (!oyun->c)
 		exit_error("Geçersiz harita: Toplanacak öge yok.\n\
-	Invalid map: No items to collect.\n", 0);
+Invalid map: No items to collect.\n", 0);
 	if (oyun->e != 1)
 		exit_error("Geçersiz harita: Çıkış yok yada birden fazla.\n\
-	Invalid map: No exit or more than one.\n", 0);
+Invalid map: No exit or more than one.\n", 0);
 	if (oyun->p != 1)
 		exit_error("Geçersiz harita: Oyuncu yok yada birden fazla.\n\
-	Invalid map: No or more than one player.\n", 0);
+Invalid map: No or more than one player.\n", 0);
 }
 
 int	ft_safe(int y, int j, int matrix[Y][X])
@@ -162,27 +162,63 @@ void	init_matrix_print(void)
 	}
 }
 
-void	init_matrix_tmp()
+void	map_exit_chack(int i, int j)
 {
-	int	i;
-	int	j;
+	matrix[i][j] = 2;
+	printf("\n i :%d", i);
+	printf("\n j :%d\n", j);
+	init_matrix_print();
+	ft_path_find(matrix);
+	// int	i;
+	// int	j;
 
+	// i = -1;
+	// while (++i <= Y)
+	// {
+	// 	j = -1;
+	// 	while (++j <= X)
+	// 	{
+	// 		if (matrix[i][j] == 5)
+	// 		{
+	// 			ft_path_find(matrix);
+	// 		}
+	// 	}
+	// }
+}
+
+void	init_matrix_tmp(void)
+{
+	static int	exit_i;
+	static int	exit_j;
+	int			i;
+	int			j;
+
+	exit_i = 5;
+	exit_j = 5;
 	i = -1;
 	while (++i <= Y)
 	{
 		j = -1;
 		while (++j <= X)
 		{
+			if (matrix[i][j] == 5)
+			{
+				exit_i = i;
+				exit_j = j;
+				matrix[i][j] = 0;
+			}
 			if (matrix[i][j] == 4)
 			{
 				matrix[i][j] = 2;
 				init_matrix_print();
 				ft_path_find(matrix);
+				matrix[i][j] = 4;
 			}
 			ft_printf("%d", matrix[i][j]);
 		}
 		write(1, "\n", 1);
 	}
+	map_exit_chack(exit_i, exit_j);
 }
 
 void	init_matrix(t_game *oyun)
@@ -199,7 +235,10 @@ void	init_matrix(t_game *oyun)
 			if (oyun->map[i][j] == 'C')
 				matrix[i][j] = 4;
 			if (oyun->map[i][j] == 'E')
-				matrix[i][j] = 4;
+			{
+				// exit_i = 5;
+				matrix[i][j] = 5;
+			}
 			if (oyun->map[i][j] == 'P')
 				matrix[i][j] = 1;
 			if (oyun->map[i][j] == '0')

@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:28:13 by duzun             #+#    #+#             */
-/*   Updated: 2022/11/13 19:23:31 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/13 21:54:11 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	check_line(char *line, size_t size, size_t row)
 	i = -1;
 	if (row != size)
 		exit_error("Geçersiz harita: her satır aynı uzunlukta olmalı.\n\
-		Invalid map: each line must be the same length.\n", 0);
+Invalid map: each line must be the same length.\n", 0);
 	while (line[++i])
 	{
 		if (line[i] != '0' && line[i] != '1' && line[i] != 'C'
@@ -36,7 +36,7 @@ static void	check_line(char *line, size_t size, size_t row)
 		{
 			ft_printf("Geçersiz karakter / Invalid character : %c\n", line[i]);
 			exit_error("Hata: tanımlanmayan harita karakteri\n\
-			Error: undefined map character\n", 0);
+Error: undefined map character\n", 0);
 		}
 	}
 }
@@ -77,7 +77,7 @@ void	building_map(char *av, t_game *oyun)
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
 		exit_error("Geçersiz veya hatalı harita\n\
-		Invalid or incorrect map\n", 0);
+Invalid or incorrect map\n", 0);
 	data = get_data(fd);
 	oyun->map = ft_split(data, '\n');
 	close(fd);
