@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:28:27 by duzun             #+#    #+#             */
-/*   Updated: 2022/11/13 22:35:57 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/14 00:21:02 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@ static void	check_border(t_game *oyun)
 {
 	int	i;
 
+	if (oyun->height >= 27)
+		exit_error("Geçersiz Harita: Haritanın yüksekliği çok fazla.\n\
+Invalid Map: The height of the map is too high", 0);
+	if (oyun->width >= 48)
+		exit_error("Geçersiz Harita: Haritanın genişliği çok fazla.\n\
+Invalid Map: The width of the map is too large.", 0);
 	i = -1;
 	while (++i < oyun->height)
 	{

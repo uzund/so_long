@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 22:03:20 by duzun             #+#    #+#             */
-/*   Updated: 2022/11/13 23:23:11 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/14 00:26:51 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,15 @@ int	ft_path(int matrix[Y][X], int y, int x, int visited[Y][X])
 
 void	ft_paht_put(int result)
 {
+	static int	k;
+
 	if (result)
+	{
+		k++;
+		ft_printf("[%d] ", k);
 		write(1, "KONTROL AŞAMALARI / CONTROL STAGES ... BAŞARILI / \
 SUCCESSFUL\n", 63);
+	}
 	else
 	{
 		exit_error("KONTROL AŞAMASI / CONTROL PHASE : BAŞARISIZ / \
