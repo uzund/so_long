@@ -6,55 +6,55 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:29:15 by duzun             #+#    #+#             */
-/*   Updated: 2022/11/13 23:43:58 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/15 21:17:12 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	put_image(t_game *oyun, void **image, char *path)
+void	put_image(t_game *gamyun, void **image, char *path)
 {
 	int	width;
 	int	height;
 
-	*image = mlx_xpm_file_to_image(oyun->mlx, path, &width, &height);
+	*image = mlx_xpm_file_to_image(gamyun->mlx, path, &width, &height);
 	if (!(*image))
 	{
-		free_all(oyun);
+		free_all(gamyun);
 		exit_error("Görüntü başlatma sorunu /Image initialization problem", 0);
 	}
 }
 
-int	keypress(int code, t_game *oyun)
+int	keypress(int code, t_game *gamyun)
 {
 	if (code == 13 || code == 126)
 	{
-		if (move_up(oyun))
-			ft_printf("%d\n", ++oyun->count);
+		if (move_up(gamyun))
+			ft_printf("%d\n", ++gamyun->count);
 	}
 	if (code == 0 || code == 123)
 	{
-		if (move_left(oyun))
-			ft_printf("%d\n", ++oyun->count);
+		if (move_left(gamyun))
+			ft_printf("%d\n", ++gamyun->count);
 	}
 	if (code == 1 || code == 125)
 	{
-		if (move_down(oyun))
-			ft_printf("%d\n", ++oyun->count);
+		if (move_down(gamyun))
+			ft_printf("%d\n", ++gamyun->count);
 	}
 	if (code == 2 || code == 124)
 	{
-		if (move_right(oyun))
-			ft_printf("%d\n", ++oyun->count);
+		if (move_right(gamyun))
+			ft_printf("%d\n", ++gamyun->count);
 	}
 	if (code == 53)
-		free_all_exit(oyun);
+		free_all_exit(gamyun);
 	return (0);
 }
 
-int	free_all_exit(t_game *oyun)
+int	free_all_exit(t_game *gamyun)
 {
-	free_all(oyun);
+	free_all(gamyun);
 	exit(0);
 }
 
@@ -64,23 +64,23 @@ void	exit_error(char *msg, int code)
 	exit(code);
 }
 
-void	free_all(t_game *oyun)
+void	free_all(t_game *gamyun)
 {
 	int	i;
 
 	i = -1;
-	mlx_destroy_image(oyun->mlx, oyun->player);
-	mlx_destroy_image(oyun->mlx, oyun->hediye);
-	mlx_destroy_image(oyun->mlx, oyun->duvar);
-	mlx_destroy_image(oyun->mlx, oyun->cikis);
-	mlx_destroy_image(oyun->mlx, oyun->zemin);
-	mlx_destroy_window(oyun->mlx, oyun->mlx_win);
-	while (oyun->map[++i])
-		free(oyun->map[i]);
-	free(oyun->map);
-	if (oyun->success)
+	mlx_destroy_image(gamyun->mlx, gamyun->player);
+	mlx_destroy_image(gamyun->mlx, gamyun->hediye);
+	mlx_destroy_image(gamyun->mlx, gamyun->duvar);
+	mlx_destroy_image(gamyun->mlx, gamyun->cikis);
+	mlx_destroy_image(gamyun->mlx, gamyun->zemin);
+	mlx_destroy_window(gamyun->mlx, gamyun->mlx_win);
+	while (gamyun->map[++i])
+		free(gamyun->map[i]);
+	free(gamyun->map);
+	if (gamyun->success)
 		ft_printf("Başardınız Skorunuz : %d\nYour Score : %d\n", \
-		++oyun->count, oyun->count);
-	if (oyun->fail)
+		++gamyun->count, gamyun->count);
+	if (gamyun->fail)
 		ft_printf("Tekrar Deneyiniz!\nTry again!\n");
 }

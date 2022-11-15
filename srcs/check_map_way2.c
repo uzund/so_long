@@ -6,13 +6,13 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 23:05:39 by duzun             #+#    #+#             */
-/*   Updated: 2022/11/13 23:42:35 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/15 21:31:50 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	map_exit_chack(int i, int j)
+void	map_exit_chack(int i, int j, int matrix[Y][X])
 {
 	matrix[i][j] = 2;
 	ft_path_find(matrix);
@@ -56,7 +56,7 @@ void	init_matrix_tmp_child(int i, int j, int matrix[Y][X])
 	}
 }
 
-void	init_matrix_tmp(void)
+void	init_matrix_tmp(int matrix[Y][X], t_game *gamyun)
 {
 	static int	exit_i;
 	static int	exit_j;
@@ -66,10 +66,10 @@ void	init_matrix_tmp(void)
 	exit_i = 5;
 	exit_j = 5;
 	i = -1;
-	while (++i <= Y)
+	while (++i <= gamyun->mat_y)
 	{
 		j = -1;
-		while (++j <= X)
+		while (++j <= gamyun->mat_x)
 		{
 			if (matrix[i][j] == 5)
 			{
@@ -80,5 +80,5 @@ void	init_matrix_tmp(void)
 			init_matrix_tmp_child(i, j, matrix);
 		}
 	}
-	map_exit_chack(exit_i, exit_j);
+	map_exit_chack(exit_i, exit_j, matrix);
 }

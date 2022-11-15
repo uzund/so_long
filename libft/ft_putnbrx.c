@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 11:59:43 by duzun             #+#    #+#             */
-/*   Updated: 2022/11/12 14:05:19 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/15 21:36:21 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,3 @@ int	ft_putnbrx(unsigned int nbrx, char c)
 		val += ft_putchar("0123456789ABCDEF"[nbrx % 16]);
 	return (val);
 }
-

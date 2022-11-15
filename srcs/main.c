@@ -6,34 +6,33 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:28:37 by duzun             #+#    #+#             */
-/*   Updated: 2022/11/13 23:17:38 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/15 21:22:43 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static t_game	*init_param(t_game *oyun)
+void	init_param(t_game *gamyun)
 {
-	oyun->player_x = 0;
-	oyun->player_y = 0;
-	oyun->map = NULL;
-	oyun->width = 0;
-	oyun->height = 0;
-	oyun->mlx = NULL;
-	oyun->mlx_win = NULL;
-	oyun->mlx_img = NULL;
-	oyun->count = 0;
-	oyun->c = 0;
-	oyun->e = 0;
-	oyun->p = 0;
-	oyun->player = NULL;
-	oyun->duvar = NULL;
-	oyun->cikis = NULL;
-	oyun->zemin = NULL;
-	oyun->hediye = NULL;
-	oyun->success = 0;
-	oyun->fail = 0;
-	return (oyun);
+	gamyun->player_x = 0;
+	gamyun->player_y = 0;
+	gamyun->map = NULL;
+	gamyun->width = 0;
+	gamyun->height = 0;
+	gamyun->mlx = NULL;
+	gamyun->mlx_win = NULL;
+	gamyun->mlx_img = NULL;
+	gamyun->count = 0;
+	gamyun->c = 0;
+	gamyun->e = 0;
+	gamyun->p = 0;
+	gamyun->player = NULL;
+	gamyun->duvar = NULL;
+	gamyun->cikis = NULL;
+	gamyun->zemin = NULL;
+	gamyun->hediye = NULL;
+	gamyun->success = 0;
+	gamyun->fail = 0;
 }
 
 static int	check_file(char *av)
@@ -50,17 +49,17 @@ static int	check_file(char *av)
 
 int	main(int ac, char **av)
 {
-	t_game	*oyun;
+	t_game	*gamyun;
 
 	if (ac != 2)
 		exit_error("Hata! Kullanım: ./so_long <map.ber>\n\
 		Error! Use: ./so_long <map.ber>\n", 0);
 	if (!check_file(av[1]))
 		exit_error(".ber uzantılı dosya bulunamadı.\n\
-		The .ber file was not found.\n", 0);
-	oyun = (t_game *)malloc(sizeof(t_game));
-	oyun = init_param(oyun);
-	building_map(av[1], oyun);
-	so_long(oyun);
+The .ber file was not found.", 0);
+	gamyun = (t_game *)malloc(sizeof(t_game));
+	init_param(gamyun);
+	building_map(av[1], gamyun);
+	so_long(gamyun);
 	return (0);
 }

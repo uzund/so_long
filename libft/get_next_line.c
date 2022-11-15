@@ -10,22 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/20 12:14:12 by duzun             #+#    #+#             */
-/*   Updated: 2022/08/20 12:14:12 by duzun            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-
 #include "libft.h"
 
-char	*ft_satir_yap(char **str, int chrlen, char **buf)
+char	*ft_convert_to_line(char **str, int chrlen, char **buf)
 {
 	int		i;
 	char	*line;
@@ -78,5 +65,5 @@ char	*get_next_line(int fd)
 			break ;
 		chrlen = read(fd, buf, BUFFER_SIZE);
 	}
-	return (ft_satir_yap(&str, chrlen, &buf));
+	return (ft_convert_to_line(&str, chrlen, &buf));
 }

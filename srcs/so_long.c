@@ -6,87 +6,87 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:28:56 by duzun             #+#    #+#             */
-/*   Updated: 2022/11/13 19:31:35 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/15 21:17:12 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	init_window(t_game *oyun)
+static void	init_window(t_game *gamyun)
 {
 	int	height;
 	int	width;
 
-	height = (oyun->height + 1) * 53;
-	width = oyun->width * 53;
-	oyun->mlx = mlx_init();
-	oyun->mlx_win = mlx_new_window(oyun->mlx, width, height, "SO_LONG \
+	height = (gamyun->height + 1) * 53;
+	width = gamyun->width * 53;
+	gamyun->mlx = mlx_init();
+	gamyun->mlx_win = mlx_new_window(gamyun->mlx, width, height, "SO_LONG \
 	[DAVUT UZUN] [42istanbul]");
-	oyun->mlx_img = mlx_new_image(oyun->mlx, width, height);
-	if (oyun->mlx == 0 || oyun->mlx_win == 0 || oyun->mlx_img == 0)
+	gamyun->mlx_img = mlx_new_image(gamyun->mlx, width, height);
+	if (gamyun->mlx == 0 || gamyun->mlx_win == 0 || gamyun->mlx_img == 0)
 	{
-		free_all(oyun);
+		free_all(gamyun);
 		exit_error("Hata!: Görüntü başlatma başarısız oldu.\n\
-		Error!: Image initialization failed.\n", 0);
+		Error!: Image initialization failed.", 0);
 	}
 }
 
-static void	init_images(t_game *oyun)
+static void	init_images(t_game *gamyun)
 {
-	put_image(oyun, &oyun->player, "./img/player_on.xpm");
-	put_image(oyun, &oyun->cikis, "./img/cikis.xpm");
-	put_image(oyun, &oyun->hediye, "./img/hediye.xpm");
-	put_image(oyun, &oyun->duvar, "./img/duvar.xpm");
-	put_image(oyun, &oyun->zemin, "./img/zemin.xpm");
+	put_image(gamyun, &gamyun->player, "./img/player_on.xpm");
+	put_image(gamyun, &gamyun->cikis, "./img/cikis.xpm");
+	put_image(gamyun, &gamyun->hediye, "./img/hediye.xpm");
+	put_image(gamyun, &gamyun->duvar, "./img/duvar.xpm");
+	put_image(gamyun, &gamyun->zemin, "./img/zemin.xpm");
 }
 
-static void	init_item(t_game *oyun, void *item, int i, int j)
+static void	init_item(t_game *gamyun, void *item, int i, int j)
 {
-	if (item == oyun->player)
+	if (item == gamyun->player)
 	{
-		oyun->player_x = i;
-		oyun->player_y = j;
-		mlx_put_image_to_window(oyun->mlx, oyun->mlx_win, \
+		gamyun->player_x = i;
+		gamyun->player_y = j;
+		mlx_put_image_to_window(gamyun->mlx, gamyun->mlx_win, \
 			item, i * 53, j * 53);
 	}
 	else
-		mlx_put_image_to_window(oyun->mlx, oyun->mlx_win, \
+		mlx_put_image_to_window(gamyun->mlx, gamyun->mlx_win, \
 			item, i * 53, j * 53);
 }
 
-int	init_map(t_game *oyun)
+int	init_map(t_game *gamyun)
 {
 	int	i;
 	int	j;
 
 	j = -1;
-	while (oyun->map[++j])
+	while (gamyun->map[++j])
 	{
 		i = -1;
-		while (oyun->map[j][++i])
+		while (gamyun->map[j][++i])
 		{
-			if (oyun->map[j][i] == 'E')
-				init_item(oyun, oyun->cikis, i, j);
-			if (oyun->map[j][i] == '1')
-				init_item(oyun, oyun->duvar, i, j);
-			if (oyun->map[j][i] == 'C')
-				init_item(oyun, oyun->hediye, i, j);
-			if (oyun->map[j][i] == 'P')
-				init_item(oyun, oyun->player, i, j);
-			if (oyun->map[j][i] == '0')
-				init_item(oyun, oyun->zemin, i, j);
+			if (gamyun->map[j][i] == 'E')
+				init_item(gamyun, gamyun->cikis, i, j);
+			if (gamyun->map[j][i] == '1')
+				init_item(gamyun, gamyun->duvar, i, j);
+			if (gamyun->map[j][i] == 'C')
+				init_item(gamyun, gamyun->hediye, i, j);
+			if (gamyun->map[j][i] == 'P')
+				init_item(gamyun, gamyun->player, i, j);
+			if (gamyun->map[j][i] == '0')
+				init_item(gamyun, gamyun->zemin, i, j);
 		}
 	}
 	return (0);
 }
 
-void	so_long(t_game *oyun)
+void	so_long(t_game *gamyun)
 {
-	init_window(oyun);
-	init_images(oyun);
-	init_map(oyun);
-	mlx_hook(oyun->mlx_win, 2, 1L << 0, keypress, oyun);
-	mlx_hook(oyun->mlx_win, 17, 1L << 17, free_all_exit, oyun);
-	mlx_hook(oyun->mlx_win, 9, 1L << 21, init_map, oyun);
-	mlx_loop(oyun->mlx);
+	init_window(gamyun);
+	init_images(gamyun);
+	init_map(gamyun);
+	mlx_hook(gamyun->mlx_win, 2, 1L << 0, keypress, gamyun);
+	mlx_hook(gamyun->mlx_win, 17, 1L << 17, free_all_exit, gamyun);
+	mlx_hook(gamyun->mlx_win, 9, 1L << 21, init_map, gamyun);
+	mlx_loop(gamyun->mlx);
 }

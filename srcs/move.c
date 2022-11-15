@@ -6,138 +6,138 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:28:45 by duzun             #+#    #+#             */
-/*   Updated: 2022/10/28 02:26:22 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/15 21:17:12 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	change_player_img(t_game *oyun, char c)
+static void	change_player_img(t_game *gamyun, char c)
 {
-	mlx_clear_window(oyun->mlx, oyun->mlx_win);
-	mlx_destroy_image(oyun->mlx, oyun->player);
+	mlx_clear_window(gamyun->mlx, gamyun->mlx_win);
+	mlx_destroy_image(gamyun->mlx, gamyun->player);
 	if (c == 'u')
-		put_image(oyun, &oyun->player, "./img/player_arka.xpm");
+		put_image(gamyun, &gamyun->player, "./img/player_arka.xpm");
 	if (c == 'r')
-		put_image(oyun, &oyun->player, "./img/player_sag.xpm");
+		put_image(gamyun, &gamyun->player, "./img/player_sag.xpm");
 	if (c == 'l')
-		put_image(oyun, &oyun->player, "./img/player_sol.xpm");
+		put_image(gamyun, &gamyun->player, "./img/player_sol.xpm");
 	if (c == 'd')
-		put_image(oyun, &oyun->player, "./img/player_on.xpm");
+		put_image(gamyun, &gamyun->player, "./img/player_on.xpm");
 }
 
-int	move_up(t_game *oyun)
+int	move_up(t_game *gamyun)
 {
 	int	x;
 	int	y;
 
-	oyun->player_y--;
-	x = oyun->player_x;
-	y = oyun->player_y;
-	change_player_img(oyun, 'u');
-	if (oyun->map[y][x] == '0' || oyun->map[y][x] == 'C')
+	gamyun->player_y--;
+	x = gamyun->player_x;
+	y = gamyun->player_y;
+	change_player_img(gamyun, 'u');
+	if (gamyun->map[y][x] == '0' || gamyun->map[y][x] == 'C')
 	{
-		if (oyun->map[y][x] == 'C')
-			oyun->c--;
-		oyun->map[y][x] = 'P';
-		oyun->map[y + 1][x] = '0';
-		init_map(oyun);
+		if (gamyun->map[y][x] == 'C')
+			gamyun->c--;
+		gamyun->map[y][x] = 'P';
+		gamyun->map[y + 1][x] = '0';
+		init_map(gamyun);
 		return (1);
 	}
-	if (oyun->map[y][x] == 'E' && oyun->c == 0)
+	if (gamyun->map[y][x] == 'E' && gamyun->c == 0)
 	{
-		oyun->map[y + 1][x] = '0';
-		oyun->success = 1;
-		free_all_exit(oyun);
+		gamyun->map[y + 1][x] = '0';
+		gamyun->success = 1;
+		free_all_exit(gamyun);
 	}
-	oyun->player_y++;
-	init_map(oyun);
+	gamyun->player_y++;
+	init_map(gamyun);
 	return (0);
 }
 
-int	move_down(t_game *oyun)
+int	move_down(t_game *gamyun)
 {
 	int	x;
 	int	y;
 
-	oyun->player_y++;
-	x = oyun->player_x;
-	y = oyun->player_y;
-	change_player_img(oyun, 'd');
-	if (oyun->map[y][x] == '0' || oyun->map[y][x] == 'C')
+	gamyun->player_y++;
+	x = gamyun->player_x;
+	y = gamyun->player_y;
+	change_player_img(gamyun, 'd');
+	if (gamyun->map[y][x] == '0' || gamyun->map[y][x] == 'C')
 	{
-		if (oyun->map[y][x] == 'C')
-			oyun->c--;
-		oyun->map[y][x] = 'P';
-		oyun->map[y - 1][x] = '0';
-		init_map(oyun);
+		if (gamyun->map[y][x] == 'C')
+			gamyun->c--;
+		gamyun->map[y][x] = 'P';
+		gamyun->map[y - 1][x] = '0';
+		init_map(gamyun);
 		return (1);
 	}
-	if (oyun->map[y][x] == 'E' && oyun->c == 0)
+	if (gamyun->map[y][x] == 'E' && gamyun->c == 0)
 	{
-		oyun->map[y - 1][x] = '0';
-		oyun->success = 1;
-		free_all_exit(oyun);
+		gamyun->map[y - 1][x] = '0';
+		gamyun->success = 1;
+		free_all_exit(gamyun);
 	}
-	oyun->player_y--;
-	init_map(oyun);
+	gamyun->player_y--;
+	init_map(gamyun);
 	return (0);
 }
 
-int	move_left(t_game *oyun)
+int	move_left(t_game *gamyun)
 {
 	int	x;
 	int	y;
 
-	oyun->player_x--;
-	x = oyun->player_x;
-	y = oyun->player_y;
-	change_player_img(oyun, 'l');
-	if (oyun->map[y][x] == '0' || oyun->map[y][x] == 'C')
+	gamyun->player_x--;
+	x = gamyun->player_x;
+	y = gamyun->player_y;
+	change_player_img(gamyun, 'l');
+	if (gamyun->map[y][x] == '0' || gamyun->map[y][x] == 'C')
 	{
-		if (oyun->map[y][x] == 'C')
-			oyun->c--;
-		oyun->map[y][x] = 'P';
-		oyun->map[y][x + 1] = '0';
-		init_map(oyun);
+		if (gamyun->map[y][x] == 'C')
+			gamyun->c--;
+		gamyun->map[y][x] = 'P';
+		gamyun->map[y][x + 1] = '0';
+		init_map(gamyun);
 		return (1);
 	}
-	if (oyun->map[y][x] == 'E' && oyun->c == 0)
+	if (gamyun->map[y][x] == 'E' && gamyun->c == 0)
 	{
-		oyun->map[y][x + 1] = '0';
-		oyun->success = 1;
-		free_all_exit(oyun);
+		gamyun->map[y][x + 1] = '0';
+		gamyun->success = 1;
+		free_all_exit(gamyun);
 	}
-	oyun->player_x++;
-	init_map(oyun);
+	gamyun->player_x++;
+	init_map(gamyun);
 	return (0);
 }
 
-int	move_right(t_game *oyun)
+int	move_right(t_game *gamyun)
 {
 	int	x;
 	int	y;
 
-	oyun->player_x++;
-	x = oyun->player_x;
-	y = oyun->player_y;
-	change_player_img(oyun, 'r');
-	if (oyun->map[y][x] == '0' || oyun->map[y][x] == 'C')
+	gamyun->player_x++;
+	x = gamyun->player_x;
+	y = gamyun->player_y;
+	change_player_img(gamyun, 'r');
+	if (gamyun->map[y][x] == '0' || gamyun->map[y][x] == 'C')
 	{
-		if (oyun->map[y][x] == 'C')
-			oyun->c--;
-		oyun->map[y][x] = 'P';
-		oyun->map[y][x - 1] = '0';
-		init_map(oyun);
+		if (gamyun->map[y][x] == 'C')
+			gamyun->c--;
+		gamyun->map[y][x] = 'P';
+		gamyun->map[y][x - 1] = '0';
+		init_map(gamyun);
 		return (1);
 	}
-	if (oyun->map[y][x] == 'E' && oyun->c == 0)
+	if (gamyun->map[y][x] == 'E' && gamyun->c == 0)
 	{
-		oyun->map[y][x - 1] = '0';
-		oyun->success = 1;
-		free_all_exit(oyun);
+		gamyun->map[y][x - 1] = '0';
+		gamyun->success = 1;
+		free_all_exit(gamyun);
 	}
-	oyun->player_x--;
-	init_map(oyun);
+	gamyun->player_x--;
+	init_map(gamyun);
 	return (0);
 }

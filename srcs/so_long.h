@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:29:03 by duzun             #+#    #+#             */
-/*   Updated: 2022/11/13 23:42:50 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/15 21:27:41 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@
 
 # define X 35
 # define Y 20
-
-int matrix[20][35];
 
 typedef struct s_game
 {
@@ -45,26 +43,29 @@ typedef struct s_game
 	void	*hediye;
 	int		success;
 	int		fail;
+	int		mat_y;
+	int		mat_x;
+
 }	t_game;
 
-void	building_map(char *av, t_game *oyun);
-void	check_map(t_game *oyun);
-void	so_long(t_game *oyun);
-int		init_map(t_game *oyun);
-int		move_up(t_game *oyun);
-int		move_down(t_game *oyun);
-int		move_left(t_game *oyun);
-int		move_right(t_game *oyun);
+void	building_map(char *av, t_game *gamyun);
+void	check_map(t_game *gamyun);
+void	so_long(t_game *gamyun);
+int		init_map(t_game *gamyun);
+int		move_up(t_game *gamyun);
+int		move_down(t_game *gamyun);
+int		move_left(t_game *gamyun);
+int		move_right(t_game *gamyun);
 void	exit_error(char *msg, int code);
-void	free_all(t_game *oyun);
-void	put_image(t_game *oyun, void **image, char *path);
-int		keypress(int code, t_game *oyun);
-int		free_all_exit(t_game *oyun);
-void	ft_chance(t_game *oyun);
+void	free_all(t_game *gamyun);
+void	put_image(t_game *gamyun, void **image, char *path);
+int		keypress(int code, t_game *gamyun);
+int		free_all_exit(t_game *gamyun);
+void	ft_chance(t_game *gamyun);
 void	init_matrix_print(void);
-void	init_matrix_tmp(void);
-void	init_matrix(t_game *oyun);
-void	map_exit_chack(int i, int j);
+void	init_matrix_tmp(int matrix[Y][X], t_game *gamyun);
+void	init_matrix(t_game *gamyun);
+void	map_exit_chack(int i, int j, int matrix[Y][X]);
 void	ft_path_find(int matrix[Y][X]);
 int		ft_path(int matrix[Y][X], int y, int x, int visited[Y][X]);
 void	ft_paht_put(int result);

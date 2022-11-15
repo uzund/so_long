@@ -6,78 +6,78 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:28:27 by duzun             #+#    #+#             */
-/*   Updated: 2022/11/14 00:21:02 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/15 21:17:12 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	check_border(t_game *oyun)
+static void	check_border(t_game *gamyun)
 {
 	int	i;
 
-	if (oyun->height >= 27)
+	if (gamyun->height >= 27)
 		exit_error("Geçersiz Harita: Haritanın yüksekliği çok fazla.\n\
 Invalid Map: The height of the map is too high", 0);
-	if (oyun->width >= 48)
+	if (gamyun->width >= 48)
 		exit_error("Geçersiz Harita: Haritanın genişliği çok fazla.\n\
 Invalid Map: The width of the map is too large.", 0);
 	i = -1;
-	while (++i < oyun->height)
+	while (++i < gamyun->height)
 	{
-		if (oyun->map[i][0] != '1' || oyun->map[i][oyun->width -1] != '1')
+		if (gamyun->map[i][0] != '1' || gamyun->map[i][gamyun->width -1] != '1')
 			exit_error("Geçersiz Harita: Sınırlar kapatılmalıdır.\n\
 Invalid Map: Borders should be closed.", 0);
 	}
 	i = -1;
-	while (oyun->map[0][++i])
+	while (gamyun->map[0][++i])
 	{
-		if (oyun->map[0][i] != '1')
+		if (gamyun->map[0][i] != '1')
 			exit_error("Geçersiz Harita: Sınırlar kapatılmalıdır.\n\
 Invalid Map: Borders should be closed.", 0);
 	}
 	i = -1;
-	while (oyun->map[oyun->height][++i])
+	while (gamyun->map[gamyun->height][++i])
 	{
-		if (oyun->map[oyun->height][i] != '1')
+		if (gamyun->map[gamyun->height][i] != '1')
 			exit_error("Geçersiz Harita: Sınırlar kapatılmalıdır.\n\
 Invalid Map: Borders should be closed.", 0);
 	}
 }
 
-static void	check_char(t_game *oyun)
+static void	check_char(t_game *gamyun)
 {
 	int	i;
 	int	j;
 
 	i = -1;
-	while (oyun->map[++i])
+	while (gamyun->map[++i])
 	{
 		j = -1;
-		while (oyun->map[i][++j])
+		while (gamyun->map[i][++j])
 		{
-			if (oyun->map[i][j] == 'C')
-				oyun->c++;
-			if (oyun->map[i][j] == 'E')
-				oyun->e++;
-			if (oyun->map[i][j] == 'P')
-				oyun->p++;
+			if (gamyun->map[i][j] == 'C')
+				gamyun->c++;
+			if (gamyun->map[i][j] == 'E')
+				gamyun->e++;
+			if (gamyun->map[i][j] == 'P')
+				gamyun->p++;
 		}
 	}
-	if (!oyun->c)
+	if (!gamyun->c)
 		exit_error("Geçersiz harita: Toplanacak öge yok.\n\
 Invalid map: No items to collect.", 0);
-	if (oyun->e != 1)
+	if (gamyun->e != 1)
 		exit_error("Geçersiz harita: Çıkış yok yada birden fazla.\n\
 Invalid map: No exit or more than one.", 0);
-	if (oyun->p != 1)
-		exit_error("Geçersiz harita: Oyuncu yok yada birden fazla.\n\
+	if (gamyun->p != 1)
+		exit_error("Geçersiz harita: gamyuncu yok yada birden fazla.\n\
 Invalid map: No or more than one player.", 0);
 }
 
-void	check_map(t_game *oyun)
+void	check_map(t_game *gamyun)
 {
-	check_border(oyun);
-	check_char(oyun);
-	init_matrix(oyun);
+	check_border(gamyun);
+	check_char(gamyun);
+	init_matrix(gamyun);
 }
