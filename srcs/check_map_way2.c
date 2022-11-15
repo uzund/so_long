@@ -6,36 +6,54 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 23:05:39 by duzun             #+#    #+#             */
-/*   Updated: 2022/11/15 21:31:50 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/16 00:06:29 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	map_exit_chack(int i, int j, int matrix[Y][X])
+void	ft_paht_put(int result)
 {
-	matrix[i][j] = 2;
-	ft_path_find(matrix);
+	static int	k;
+
+	if (result)
+	{
+		k++;
+		ft_printf("[%d] ", k);
+		write(1, "KONTROL AŞAMALARI / CONTROL STAGES ... BAŞARILI / \
+SUCCESSFUL\n", 63);
+	}
+	else
+	{
+		exit_error("[X] KONTROL AŞAMASI / CONTROL PHASE : BAŞARISIZ / \
+UNSUCCESSFUL\nGeçersiz Harita: Tüm toplanabilir yada çıkışa erişim \
+sağlanamıyor\nInvalid Map: All collectible or not accessible to exit", 0);
+	}
 }
 
-void	ft_path_find(int matrix[Y][X])
+void	map_exit_chack(int i, int j, t_game *gamyun)
 {
-	int	visited[Y][X];
+	gamyun->mat[i][j] = 'F';
+	ft_path_find(gamyun);
+}
+
+void	ft_path_find(t_game *gamyun)
+{
 	int	result;
 	int	y;
 	int	x;
 
-	ft_memset(visited, 0, sizeof(visited));
+	ft_visited_clear(gamyun);
 	result = 0;
 	y = -1;
-	while (++y < Y)
+	while (++y <= gamyun->mat_y)
 	{
 		x = -1;
-		while (++x < X)
+		while (++x <= gamyun->mat_x)
 		{
-			if (matrix[y][x] == 1 && !visited[y][x])
+			if (gamyun->mat[y][x] == 'P' && gamyun->visited[y][x] != '1')
 			{
-				if (ft_path(matrix, y, x, visited))
+				if (ft_path(y, x, gamyun))
 				{
 					result = 1;
 					break ;
@@ -46,39 +64,39 @@ void	ft_path_find(int matrix[Y][X])
 	ft_paht_put(result);
 }
 
-void	init_matrix_tmp_child(int i, int j, int matrix[Y][X])
+void	init_matrix_tmp_child(int i, int j, t_game *gamyun)
 {
-	if (matrix[i][j] == 4)
+	if (gamyun->mat[i][j] == 'C')
 	{
-		matrix[i][j] = 2;
-		ft_path_find(matrix);
-		matrix[i][j] = 4;
+		gamyun->mat[i][j] = 'F';
+		ft_path_find(gamyun);
+		gamyun->mat[i][j] = 'C';
 	}
 }
 
-void	init_matrix_tmp(int matrix[Y][X], t_game *gamyun)
+void	init_matrix(t_game *gamyun)
 {
 	static int	exit_i;
 	static int	exit_j;
 	int			i;
 	int			j;
 
-	exit_i = 5;
-	exit_j = 5;
+	exit_i = 0;
+	exit_j = 0;
 	i = -1;
-	while (++i <= gamyun->mat_y)
+	while (gamyun->mat[++i])
 	{
 		j = -1;
-		while (++j <= gamyun->mat_x)
+		while (gamyun->mat[i][++j])
 		{
-			if (matrix[i][j] == 5)
+			if (gamyun->mat[i][j] == 'E')
 			{
 				exit_i = i;
 				exit_j = j;
-				matrix[i][j] = 0;
+				gamyun->mat[i][j] = '1';
 			}
-			init_matrix_tmp_child(i, j, matrix);
+			init_matrix_tmp_child(i, j, gamyun);
 		}
 	}
-	map_exit_chack(exit_i, exit_j, matrix);
+	map_exit_chack(exit_i, exit_j, gamyun);
 }

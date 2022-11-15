@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:28:13 by duzun             #+#    #+#             */
-/*   Updated: 2022/11/15 21:20:24 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/16 00:38:29 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ static	t_game	*get_wh(t_game *gamyun)
 	while (gamyun->map[gamyun->height])
 		gamyun->height++;
 	gamyun->height--;
+	gamyun->mat_y = gamyun->height;
+	gamyun->mat_x = gamyun->width - 1;
 	return (gamyun);
 }
 
@@ -41,11 +43,11 @@ Error: undefined map character", 0);
 	}
 }
 
-// void	free_mem(void)
-// {
-// 	free(line);
-// 	free(tmp);
-// }
+void	x_free(char *line, char *tmp)
+{
+	free(line);
+	free(tmp);
+}
 
 static char	*get_data(int fd)
 {
@@ -70,8 +72,7 @@ static char	*get_data(int fd)
 			check_line(line, size, row);
 			tmp = data;
 			data = ft_strjoin(data, line);
-			free(line);
-			free(tmp);
+			x_free(line, tmp);
 		}
 	}
 	return (data);
@@ -90,6 +91,8 @@ void	building_map(char *av, t_game *gamyun)
 	free(path);
 	data = get_data(fd);
 	gamyun->map = ft_split(data, '\n');
+	gamyun->mat = ft_split(data, '\n');
+	gamyun->visited = ft_split(data, '\n');
 	close(fd);
 	free(data);
 	gamyun = get_wh(gamyun);

@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:29:03 by duzun             #+#    #+#             */
-/*   Updated: 2022/11/15 21:27:41 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/16 00:11:46 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,12 @@
 
 # include <fcntl.h>
 
-# define X 35
-# define Y 20
-
 typedef struct s_game
 {
+	char	**visited;
+	char	**mat;
+	int		mat_y;
+	int		mat_x;
 	int		player_x;
 	int		player_y;
 	char	**map;
@@ -43,8 +44,6 @@ typedef struct s_game
 	void	*hediye;
 	int		success;
 	int		fail;
-	int		mat_y;
-	int		mat_x;
 
 }	t_game;
 
@@ -61,14 +60,13 @@ void	free_all(t_game *gamyun);
 void	put_image(t_game *gamyun, void **image, char *path);
 int		keypress(int code, t_game *gamyun);
 int		free_all_exit(t_game *gamyun);
-void	ft_chance(t_game *gamyun);
-void	init_matrix_print(void);
-void	init_matrix_tmp(int matrix[Y][X], t_game *gamyun);
 void	init_matrix(t_game *gamyun);
-void	map_exit_chack(int i, int j, int matrix[Y][X]);
-void	ft_path_find(int matrix[Y][X]);
-int		ft_path(int matrix[Y][X], int y, int x, int visited[Y][X]);
+void	map_exit_chack(int i, int j, t_game *gamyun);
+void	ft_path_find(t_game *gamyun);
+int		ft_path(int y, int x, t_game *oyun);
 void	ft_paht_put(int result);
-void	init_matrix_tmp_child(int i, int j, int matrix[Y][X]);
+void	init_matrix_tmp_child(int i, int j, t_game *gamyun);
+int		ft_safe(int y, int j, t_game *gamyun);
+void	ft_visited_clear(t_game *gamyun);
 
 #endif
