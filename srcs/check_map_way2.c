@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 23:05:39 by duzun             #+#    #+#             */
-/*   Updated: 2022/11/16 07:20:47 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/16 21:56:57 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,6 @@ void	init_matrix(t_game *gamyun)
 	int			i;
 	int			j;
 
-	exit_i = 0;
-	exit_j = 0;
 	i = -1;
 	while (gamyun->mat[++i])
 	{
