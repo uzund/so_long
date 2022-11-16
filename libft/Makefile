@@ -61,13 +61,14 @@ SRCS	=	ft_isalnum.c \
 			ft_lstnew.c \
 			ft_lstsize.c \
 			get_next_line.c \
+			gnl_utils.c \
 			ft_putchar.c \
 			ft_putstr.c \
 			ft_nbrlen.c \
 			ft_putnbr.c \
 			ft_putnbrx.c \
 			ft_putnbru.c \
-			ft_putp.c
+			ft_putp.c 
 						
 OBJS				=	$(SRCS:.c=.o)
 

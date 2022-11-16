@@ -6,14 +6,11 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 18:13:27 by duzun             #+#    #+#             */
-/*   Updated: 2022/10/27 22:09:59 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/16 07:29:52 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-//
-//
 
 size_t	ft_strlcat(char *s1, const char *s2, size_t n)
 {

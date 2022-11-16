@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 13:52:54 by duzun             #+#    #+#             */
-/*   Updated: 2022/10/30 01:20:20 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/16 09:00:07 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,20 @@
 // *s göstericisi ile gösterilen dizgi için de c değişkeni arar bulduğu
 // konumdan sonrasını döndürür.
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *str, int c)
 {
-	while (*s != (char)c)
-		if (!*s++)
-			return (0);
-	return ((char *)s);
-}
+	int	index;
 
+	index = 0;
+	if (!str)
+		return (0);
+	if (c == '\0')
+		return ((char *)&str[ft_strlen(str)]);
+	while (str[index])
+	{
+		if (str[index] == (char)c)
+			return ((char *)&str[index]);
+		index++;
+	}
+	return (NULL);
+}

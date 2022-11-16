@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:47:37 by duzun             #+#    #+#             */
-/*   Updated: 2022/10/28 12:55:13 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/16 09:42:15 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,12 @@ char	*get_next_line(int fd);
 int		ft_putnbrx(unsigned int n, char c);
 int		ft_putnbru(unsigned int nbru);
 int		ft_putp(unsigned long int nbrp);
+char	*ft_read_and_create(int fd, char *create);
+char	*ft_create(char *create);
+size_t	ft_strlen_gnl(const char *str);
+char	*ft_strjoin_gnl(char *s1, char *s2);
+char	*ft_strchr_gnl(const char *str, int c);
+size_t	ft_strlcpy_gnl(char *dst, const char *src, size_t dstsize);
+void	*ft_free(void *str);
 
 #endif

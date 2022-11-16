@@ -6,7 +6,7 @@
 #    By: duzun <davut@uzun.ist>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/03 22:25:04 by marvin            #+#    #+#              #
-#    Updated: 2022/11/15 21:12:55 by duzun            ###   ########.fr        #
+#    Updated: 2022/11/16 09:56:55 by duzun            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS		= 	srcs/main.c \
 				srcs/so_long.c \
 				srcs/move.c \
 				srcs/utils.c \
+				srcs/utils2.c \
 				srcs/check_map_way.c \
 				srcs/check_map_way2.c
 NAME		=	so_long

@@ -6,13 +6,13 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 23:05:39 by duzun             #+#    #+#             */
-/*   Updated: 2022/11/16 00:06:29 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/16 07:20:47 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_paht_put(int result)
+void	ft_paht_put(t_game *gamyun, int result)
 {
 	static int	k;
 
@@ -25,7 +25,7 @@ SUCCESSFUL\n", 63);
 	}
 	else
 	{
-		exit_error("[X] KONTROL AŞAMASI / CONTROL PHASE : BAŞARISIZ / \
+		exit_error(gamyun, "[X] KONTROL AŞAMASI / CONTROL PHASE : BAŞARISIZ / \
 UNSUCCESSFUL\nGeçersiz Harita: Tüm toplanabilir yada çıkışa erişim \
 sağlanamıyor\nInvalid Map: All collectible or not accessible to exit", 0);
 	}
@@ -61,7 +61,7 @@ void	ft_path_find(t_game *gamyun)
 			}
 		}
 	}
-	ft_paht_put(result);
+	ft_paht_put(gamyun, result);
 }
 
 void	init_matrix_tmp_child(int i, int j, t_game *gamyun)

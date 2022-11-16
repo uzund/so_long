@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:29:03 by duzun             #+#    #+#             */
-/*   Updated: 2022/11/16 00:11:46 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/16 09:53:54 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int		move_up(t_game *gamyun);
 int		move_down(t_game *gamyun);
 int		move_left(t_game *gamyun);
 int		move_right(t_game *gamyun);
-void	exit_error(char *msg, int code);
+void	exit_error(t_game *gamyun, char *msg, int code);
 void	free_all(t_game *gamyun);
 void	put_image(t_game *gamyun, void **image, char *path);
 int		keypress(int code, t_game *gamyun);
@@ -63,10 +63,11 @@ int		free_all_exit(t_game *gamyun);
 void	init_matrix(t_game *gamyun);
 void	map_exit_chack(int i, int j, t_game *gamyun);
 void	ft_path_find(t_game *gamyun);
-int		ft_path(int y, int x, t_game *oyun);
-void	ft_paht_put(int result);
+int		ft_path(int y, int x, t_game *gamyun);
+void	ft_paht_put(t_game *gamyun, int result);
 void	init_matrix_tmp_child(int i, int j, t_game *gamyun);
 int		ft_safe(int y, int j, t_game *gamyun);
 void	ft_visited_clear(t_game *gamyun);
+void	free_all_child(t_game *gamyun);
 
 #endif

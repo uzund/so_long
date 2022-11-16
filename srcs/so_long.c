@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:28:56 by duzun             #+#    #+#             */
-/*   Updated: 2022/11/16 00:13:07 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/16 07:03:03 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	init_window(t_game *gamyun)
 	if (gamyun->mlx == 0 || gamyun->mlx_win == 0 || gamyun->mlx_img == 0)
 	{
 		free_all(gamyun);
-		exit_error("Hata!: Görüntü başlatma başarısız oldu.\n\
+		exit_error(gamyun, "Hata!: Görüntü başlatma başarısız oldu.\n\
 		Error!: Image initialization failed.", 0);
 	}
 }
