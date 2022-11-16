@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:29:15 by duzun             #+#    #+#             */
-/*   Updated: 2022/11/16 10:31:02 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/16 19:05:52 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,8 @@ void	put_image(t_game *gamyun, void **image, char *path)
 
 	*image = mlx_xpm_file_to_image(gamyun->mlx, path, &width, &height);
 	if (!(*image))
-	{
-		free_all(gamyun);
 		exit_error(gamyun, "Görüntü başlatma sorunu: Görüntü dosyalarını \
 kontrol edin.\nImage initialization problem: Check the image files.", 0);
-	}
 }
 
 int	keypress(int code, t_game *gamyun)
