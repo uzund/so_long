@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:28:27 by duzun             #+#    #+#             */
-/*   Updated: 2022/11/16 08:04:11 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/16 22:42:59 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ Invalid Map: Borders should be closed.", 0);
 	while (gamyun->map[gamyun->height][++i])
 	{
 		if (gamyun->map[gamyun->height][i] != '1')
-			exit_error(gamyun,"Geçersiz Harita: Sınırlar kapatılmalıdır.\n\
+			exit_error(gamyun, "Geçersiz Harita: Sınırlar kapatılmalıdır.\n\
 Invalid Map: Borders should be closed.", 0);
 	}
 }

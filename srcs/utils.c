@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:29:15 by duzun             #+#    #+#             */
-/*   Updated: 2022/11/16 19:05:52 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/16 22:45:07 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ int	keypress(int code, t_game *gamyun)
 int	free_all_exit(t_game *gamyun)
 {
 	free_all(gamyun);
-	// system("leaks so_long");
 	exit(0);
 }
 
@@ -61,6 +60,5 @@ void	exit_error(t_game *gamyun, char *msg, int code)
 {
 	ft_putendl_fd(msg, 2);
 	free_all(gamyun);
-	// system("leaks so_long");
 	exit(code);
 }
