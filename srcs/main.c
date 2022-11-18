@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 21:28:37 by duzun             #+#    #+#             */
-/*   Updated: 2022/11/16 22:43:42 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/18 20:23:02 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,19 @@ static int	check_file(char *av)
 int	main(int ac, char **av)
 {
 	t_game	*gamyun;
+	char	*control;
 
+	control = av[1];
 	if (ac != 2)
 	{
 		ft_printf("Hata! Kullanım: ./so_long <map.ber>\n\
 Error! Use: ./so_long <map.ber>\n");
+		exit(0);
+	}
+	if (ft_strncmp(av[1], ".ber", 4) == 0)
+	{
+		ft_printf(".ber gizli bir dosya adı olabilir çalıştırılamaz.\n\
+.ber may be a hidden filename and cannot be run.\n");
 		exit(0);
 	}
 	if (!check_file(av[1]))

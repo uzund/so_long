@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 23:05:39 by duzun             #+#    #+#             */
-/*   Updated: 2022/11/16 21:56:57 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/18 19:55:08 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,20 +40,20 @@ void	map_exit_chack(int i, int j, t_game *gamyun)
 void	ft_path_find(t_game *gamyun)
 {
 	int	result;
-	int	y;
-	int	x;
+	int	i;
+	int	j;
 
 	ft_visited_clear(gamyun);
 	result = 0;
-	y = -1;
-	while (++y <= gamyun->mat_y)
+	i = -1;
+	while (++i <= gamyun->mat_y)
 	{
-		x = -1;
-		while (++x <= gamyun->mat_x)
+		j = -1;
+		while (++j <= gamyun->mat_x)
 		{
-			if (gamyun->mat[y][x] == 'P' && gamyun->visited[y][x] != '1')
+			if (gamyun->mat[i][j] == 'P' && gamyun->visited[i][j] != '1')
 			{
-				if (ft_path(y, x, gamyun))
+				if (ft_path(i, j, gamyun))
 				{
 					result = 1;
 					break ;
